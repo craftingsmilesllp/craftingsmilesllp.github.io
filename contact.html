@@ -49,11 +49,12 @@
             sendingMessage.style.display = 'block'; // show the sending message
             fetch(scriptURL, {
                 method: 'POST',
+                redirect: "follow",
                 mode: 'cors',
                 body: new FormData(form),
-                headers: new Headers({
-                    'Access-Control-Allow-Origin': '*'
-                })
+                headers: {
+                    "Content-Type": "text/plain;charset=utf-8",
+                },
             })
                 .then(function (response) {
                     console.log('Success!', response)
