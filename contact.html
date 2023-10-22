@@ -48,7 +48,7 @@
             form.style.display = 'none'; // hide the form immediately
             sendingMessage.style.display = 'block'; // show the sending message
             fetch(scriptURL, {
-                method: 'POST',
+                method: 'GET',
                 redirect: "follow",
                 mode: 'cors',
                 body: new FormData(form),
