@@ -29,6 +29,7 @@
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/loadingmask.css" rel="stylesheet">
 
     <!-- =======================================================
     * Template Name: MyPortfolio
@@ -57,7 +58,7 @@
 </head>
 
 <body>
-
+    <div class='lmask'></div>
     <!-- ======= Navbar ======= -->
     <div class="collapse navbar-collapse custom-navmenu" id="main-navbar">
         <div class="container py-2 py-md-5">
@@ -625,6 +626,33 @@
             'wrapAround': false,
             'imageFadeDuration': 1000
         })
+
+        function hide(elements) {
+            elements = elements.length ? elements : [elements];
+            for (var index = 0; index < elements.length; index++) {
+                elements[index].style.display = 'none';
+            }
+        }
+
+        window.addEventListener('load', (event) => {
+            console.log('The page has fully loaded');
+            // Your code here
+            hide(document.querySelectorAll('.lmask'));
+        });
+
+
+        document.addEventListener('readystatechange', event => {
+
+            // When HTML/DOM elements are ready:
+            // if (event.target.readyState === "interactive") {   //does same as:  ..addEventListener("DOMContentLoaded"..
+            //     alert("hi 1");
+            // }
+
+            // When window loaded ( external resources are loaded too- `css`,`src`, etc...) 
+            if (event.target.readyState === "complete") {
+                hide(document.querySelectorAll('.lmask'));
+            }
+        });
     </script>
 
 </body>
