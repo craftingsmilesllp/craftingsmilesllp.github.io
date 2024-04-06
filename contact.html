@@ -4,20 +4,21 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta http-equiv="pragma" content="no-cache"/>
+    <meta http-equiv="pragma" content="no-cache" />
 
     <title>Smart Gifter - Crafting Smiles Company</title>
     <meta content="" name="description">
     <meta content="smart gifter, theme based stationery, custom tshirts, custom bottle, custom craft work"
-          name="keywords">
+        name="keywords">
 
     <!-- Favicons -->
     <link href="assets/img/favicon.png" rel="icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=https://fonts.googleapis.com/css?family=Inconsolata:400,500,600,700|Raleway:400,400i,500,500i,600,600i,700,700i"
-          rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=https://fonts.googleapis.com/css?family=Inconsolata:400,500,600,700|Raleway:400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
@@ -37,208 +38,219 @@
     ======================================================== -->
     <script>
 
-        var scriptURL = 'https://script.google.com/macros/s/AKfycbwGHUYtUyfAJ3589V0SeHiZI2Q4VCihhjYciYPQVJ2ovpQy4ID_SiIXHSijjQ_HhLxPig/exec'
-        var form = document.forms['submit-to-google-sheet']
-        var successMessage = document.getElementById('success-message');
-        var sendingMessage = document.getElementById('sending-message');
+        window.addEventListener('load', (event) => {
+            console.log('The page has fully loaded');
+            // Your code here
+            var scriptURL = 'https://script.google.com/macros/s/AKfycbwGHUYtUyfAJ3589V0SeHiZI2Q4VCihhjYciYPQVJ2ovpQy4ID_SiIXHSijjQ_HhLxPig/exec'
+            var form = document.forms['submit-to-google-sheet']
+            var successMessage = document.getElementById('success-message');
+            var sendingMessage = document.getElementById('sending-message');
 
-        form.addEventListener('submit', function (e) {
-            e.preventDefault()
-            // form.style.display = 'none'; // hide the form immediately
-            // sendingMessage.style.display = 'block'; // show the sending message
-            fetch(scriptURL, {
-                method: 'POST',
-                redirect: 'error',
-                mode: 'cors',
-                body: new FormData(form),
-                headers: {
-                    "Content-Type": "text/plain;charset=utf-8",
-                },
+            form.addEventListener('submit', function (e) {
+                e.preventDefault()
+                // form.style.display = 'none'; // hide the form immediately
+                // sendingMessage.style.display = 'block'; // show the sending message
+                fetch(scriptURL, {
+                    method: 'POST',
+                    redirect: 'error',
+                    mode: 'cors',
+                    body: new FormData(form),
+                    headers: {
+                        "Content-Type": "text/plain;charset=utf-8",
+                    },
+                })
+                    .then(function (response) {
+                        console.log('Success!', response)
+                        sendingMessage.style.display = 'none'; // hide the sending message
+                        successMessage.style.display = 'block'; // show the success message
+                    })
+                    .catch(function (error) {
+                        console.error('Error!', error.message)
+                        form.style.display = 'block'; // show the form again in case of error
+                        sendingMessage.style.display = 'none'; // hide the sending message
+                    })
             })
-                .then(function (response) {
-                    console.log('Success!', response)
-                    // sendingMessage.style.display = 'none'; // hide the sending message
-                    // successMessage.style.display = 'block'; // show the success message
-                })
-                .catch(function (error) {
-                    console.error('Error!', error.message)
-                    // form.style.display = 'block'; // show the form again in case of error
-                    // sendingMessage.style.display = 'none'; // hide the sending message
-                })
-        })
+        });
+
+
 
     </script>
 </head>
 
 <body>
 
-<!-- ======= Navbar ======= -->
-<div class="collapse navbar-collapse custom-navmenu" id="main-navbar">
-    <div class="container py-2 py-md-5">
-        <div class="row align-items-start">
-            <div class="col-md-2">
-                <ul class="custom-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <!--            <li><a href="about.html">About Me</a></li>-->
-                    <!--            <li><a href="services.html">Services</a></li>-->
-                    <!--            <li><a href="works.html">Works</a></li>-->
-                    <li class="active"><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <!--        <div class="col-md-6 d-none d-md-block  mr-auto">-->
-            <!--          <div class="tweet d-flex">-->
-            <!--            <span class="bi bi-twitter text-white mt-2 mr-3"></span>-->
-            <!--            <div>-->
-            <!--              <p><em>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis explicabo inventore. <br> <a href="#">t.co/v82jsk</a></em></p>-->
-            <!--            </div>-->
-            <!--          </div>-->
-            <!--        </div>-->
-            <!--        <div class="col-md-4 d-none d-md-block">-->
-            <!--          <h3>Hire Me</h3>-->
-            <!--          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiisexplicabo inventore. <br> <a href="#">myemail@gmail.com</a></p>-->
-            <!--        </div>-->
-        </div>
-
-    </div>
-</div>
-
-<nav class="navbar navbar-light custom-navbar">
-    <div class="container">
-        <a class="navbar-brand" href="index.html">&#128526; Smart Gifter 🎁</a>
-        <a href="#" class="burger" data-bs-toggle="collapse" data-bs-target="#main-navbar">
-            <span></span>
-        </a>
-    </div>
-</nav>
-
-<main id="main">
-
-    <section class="section pb-5">
-        <div class="container">
-
-            <div class="row mb-5 align-items-end">
-                <div class="col-md-6" data-aos="fade-up">
-                    <h2>Contact</h2>
-                    <p class="mb-0">Send us an email or contact on Whatsapp, we will get back as soon as possible.
-                    </p>
-                </div>
-
-            </div>
-
-            <div class="row">
-                <div class="col-md-6 mb-5 mb-md-0" data-aos="fade-up">
-
-                    <form action="https://script.google.com/macros/s/AKfycbwGHUYtUyfAJ3589V0SeHiZI2Q4VCihhjYciYPQVJ2ovpQy4ID_SiIXHSijjQ_HhLxPig/exec"
-                          method="post" role="form" class="php-email-form" id="submit-to-google-sheet"
-                          name="submit-to-google-sheet">
-
-                        <div class="row gy-3">
-                            <div class="col-md-6 form-group">
-                                <label for="name">Name</label>
-                                <input type="text" name="name" class="form-control" id="name" required>
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label for="name">Email</label>
-                                <input type="email" class="form-control" name="email" id="email" required>
-                            </div>
-                            <div class="col-md-12 form-group">
-                                <label for="name">Subject</label>
-                                <input type="text" class="form-control" name="subject" id="subject" required>
-                            </div>
-                            <div class="col-md-12 form-group">
-                                <label for="name">Message</label>
-                                <textarea class="form-control" name="message" cols="30" rows="10" required></textarea>
-                            </div>
-
-                            <div class="col-md-12 my-3">
-                                <div id="sending-message" style="display: none;">Please wait, Your message is being
-                                    sent...
-                                </div>
-                                <div id="success-message" style="display: none;">Your message has been sent. Thank
-                                    you!
-                                </div>
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
-                            </div>
-
-                            <div class="col-md-6 mt-0 form-group">
-                                <input type="submit" class="readmore d-block w-100" value="Send Message">
-                            </div>
-                        </div>
-
-                    </form>
-
-                </div>
-
-                <div class="col-md-4 ml-auto order-2" data-aos="fade-up">
-                    <ul class="list-unstyled">
-                        <li class="mb-3">
-                            <strong class="d-block mb-1">Address</strong>
-                            <span>Bangalore, India</span>
-                        </li>
-                        <li class="mb-3">
-                            <strong class="d-block mb-1">Facebook</strong>
-                            <a href="https://www.facebook.com/smartgifter" target="_blank"><span class="bi bi-facebook"></span></a>
-                        </li>
-                        <li class="mb-3">
-                            <strong class="d-block mb-1">Instagram</strong>
-                            <a href="https://www.instagram.com/smart_gifter/" target="_blank"><span class="bi bi-instagram"></span></a>
-                        </li>
-                        <li class="mb-3">
-                            <strong class="d-block mb-1">Whatsapp</strong>
-                            <a href="https://wa.me/919986708226?text=Hello!" target="_blank">Start a WhatsApp Chat</a>
-                        </li>
-                        <li class="mb-3">
-                            <strong class="d-block mb-1">Email</strong>
-                            <span>craftingsmilesllp@gmail.com</span>
-                        </li>
+    <!-- ======= Navbar ======= -->
+    <div class="collapse navbar-collapse custom-navmenu" id="main-navbar">
+        <div class="container py-2 py-md-5">
+            <div class="row align-items-start">
+                <div class="col-md-2">
+                    <ul class="custom-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <!--            <li><a href="about.html">About Me</a></li>-->
+                        <!--            <li><a href="services.html">Services</a></li>-->
+                        <!--            <li><a href="works.html">Works</a></li>-->
+                        <li class="active"><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-
+                <!--        <div class="col-md-6 d-none d-md-block  mr-auto">-->
+                <!--          <div class="tweet d-flex">-->
+                <!--            <span class="bi bi-twitter text-white mt-2 mr-3"></span>-->
+                <!--            <div>-->
+                <!--              <p><em>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis explicabo inventore. <br> <a href="#">t.co/v82jsk</a></em></p>-->
+                <!--            </div>-->
+                <!--          </div>-->
+                <!--        </div>-->
+                <!--        <div class="col-md-4 d-none d-md-block">-->
+                <!--          <h3>Hire Me</h3>-->
+                <!--          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiisexplicabo inventore. <br> <a href="#">myemail@gmail.com</a></p>-->
+                <!--        </div>-->
             </div>
 
         </div>
+    </div>
 
-    </section>
+    <nav class="navbar navbar-light custom-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">&#128526; Smart Gifter 🎁</a>
+            <a href="#" class="burger" data-bs-toggle="collapse" data-bs-target="#main-navbar">
+                <span></span>
+            </a>
+        </div>
+    </nav>
 
-</main><!-- End #main -->
+    <main id="main">
 
-<!-- ======= Footer ======= -->
-<footer class="footer" role="contentinfo">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                <p class="mb-1">&copy; 2023, Crafting Smiles LLP, All Rights Reserved</p>
-                <div class="credits">
-                    <!--
+        <section class="section pb-5">
+            <div class="container">
+
+                <div class="row mb-5 align-items-end">
+                    <div class="col-md-6" data-aos="fade-up">
+                        <h2>Contact</h2>
+                        <p class="mb-0">Send us an email or contact on Whatsapp, we will get back as soon as possible.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-5 mb-md-0" data-aos="fade-up">
+
+                        <form
+                            action="https://script.google.com/macros/s/AKfycbwGHUYtUyfAJ3589V0SeHiZI2Q4VCihhjYciYPQVJ2ovpQy4ID_SiIXHSijjQ_HhLxPig/exec"
+                            method="post" role="form" class="php-email-form" id="submit-to-google-sheet"
+                            name="submit-to-google-sheet">
+
+                            <div class="row gy-3">
+                                <div class="col-md-6 form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" name="name" class="form-control" id="name" required>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="name">Email</label>
+                                    <input type="email" class="form-control" name="email" id="email" required>
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <label for="name">Subject</label>
+                                    <input type="text" class="form-control" name="subject" id="subject" required>
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <label for="name">Message</label>
+                                    <textarea class="form-control" name="message" cols="30" rows="10"
+                                        required></textarea>
+                                </div>
+
+                                <div class="col-md-12 my-3">
+                                    <div id="sending-message" style="display: none;">Please wait, Your message is being
+                                        sent...
+                                    </div>
+                                    <div id="success-message" style="display: none;">Your message has been sent. Thank
+                                        you!
+                                    </div>
+                                    <div class="loading">Loading</div>
+                                    <div class="error-message"></div>
+                                    <div class="sent-message">Your message has been sent. Thank you!</div>
+                                </div>
+
+                                <div class="col-md-6 mt-0 form-group">
+                                    <input type="submit" class="readmore d-block w-100" value="Send Message">
+                                </div>
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                    <div class="col-md-4 ml-auto order-2" data-aos="fade-up">
+                        <ul class="list-unstyled">
+                            <li class="mb-3">
+                                <strong class="d-block mb-1">Address</strong>
+                                <span>Bangalore, India</span>
+                            </li>
+                            <li class="mb-3">
+                                <strong class="d-block mb-1">Facebook</strong>
+                                <a href="https://www.facebook.com/smartgifter" target="_blank"><span
+                                        class="bi bi-facebook"></span></a>
+                            </li>
+                            <li class="mb-3">
+                                <strong class="d-block mb-1">Instagram</strong>
+                                <a href="https://www.instagram.com/smart_gifter/" target="_blank"><span
+                                        class="bi bi-instagram"></span></a>
+                            </li>
+                            <li class="mb-3">
+                                <strong class="d-block mb-1">Whatsapp</strong>
+                                <a href="https://wa.me/919986708226?text=Hello!" target="_blank">Start a WhatsApp
+                                    Chat</a>
+                            </li>
+                            <li class="mb-3">
+                                <strong class="d-block mb-1">Email</strong>
+                                <span>craftingsmilesllp@gmail.com</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main><!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <p class="mb-1">&copy; 2023, Crafting Smiles LLP, All Rights Reserved</p>
+                    <div class="credits">
+                        <!--
                     All the links in the footer should remain intact.
                     You can delete the links only if you purchased the pro version.
                     Licensing information: https://bootstrapmade.com/license/
                     Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=MyPortfolio
                   -->
-                    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                    </div>
+                </div>
+                <div class="col-sm-6 social text-md-end">
+                    <a href="https://www.facebook.com/smartgifter"><span class="bi bi-facebook"></span></a>
+                    <a href="https://www.instagram.com/smart_gifter/"><span class="bi bi-instagram"></span></a>
                 </div>
             </div>
-            <div class="col-sm-6 social text-md-end">
-                <a href="https://www.facebook.com/smartgifter"><span class="bi bi-facebook"></span></a>
-                <a href="https://www.instagram.com/smart_gifter/"><span class="bi bi-instagram"></span></a>
-            </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-        class="bi bi-arrow-up-short"></i></a>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
 
-<!-- Vendor JS Files -->
-<script src="assets/vendor/aos/aos.js"></script>
-<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
-<!-- Template Main JS File -->
-<script src="assets/js/main.js"></script>
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
 
 </body>
 
