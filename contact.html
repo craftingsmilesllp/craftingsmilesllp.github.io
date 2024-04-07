@@ -12,7 +12,7 @@
         name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/favicon.jpg" rel="icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -28,7 +28,7 @@
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
-
+    <script src="https://apis.google.com/js/api.js"></script>
     <!-- =======================================================
     * Template Name: MyPortfolio
     * Updated: Sep 18 2023 with Bootstrap v5.3.2
@@ -40,40 +40,29 @@
 
         window.addEventListener('load', (event) => {
             console.log('The page has fully loaded');
-            // Your code here
-            var scriptURL = 'https://script.google.com/macros/s/AKfycbwGHUYtUyfAJ3589V0SeHiZI2Q4VCihhjYciYPQVJ2ovpQy4ID_SiIXHSijjQ_HhLxPig/exec'
             var form = document.forms['submit-to-google-sheet']
-            var successMessage = document.getElementById('success-message');
-            var sendingMessage = document.getElementById('sending-message');
 
-            form.addEventListener('submit', function (e) {
-                e.preventDefault()
-                // form.style.display = 'none'; // hide the form immediately
-                // sendingMessage.style.display = 'block'; // show the sending message
-                fetch(scriptURL, {
-                    method: 'POST',
-                    redirect: 'error',
-                    mode: 'cors',
+            form.addEventListener('submit', async function (e) {
+                var scriptURL = 'https://script.google.com/macros/s/AKfycbwGHUYtUyfAJ3589V0SeHiZI2Q4VCihhjYciYPQVJ2ovpQy4ID_SiIXHSijjQ_HhLxPig/exec'
+                var successMessage = document.getElementById('success-message');
+                var sendingMessage = document.getElementById('sending-message');
+                e.preventDefault();
+                const response = await fetch(scriptURL, {
+                    method: "POST",
                     body: new FormData(form),
-                    headers: {
-                        "Content-Type": "text/plain;charset=utf-8",
-                    },
-                })
-                    .then(function (response) {
-                        console.log('Success!', response)
-                        sendingMessage.style.display = 'none'; // hide the sending message
-                        successMessage.style.display = 'block'; // show the success message
-                    })
-                    .catch(function (error) {
-                        console.error('Error!', error.message)
-                        form.style.display = 'block'; // show the form again in case of error
-                        sendingMessage.style.display = 'none'; // hide the sending message
-                    })
-            })
-        });
+                });
+                if (response.ok) {
+                    console.log("Form submitted successfully!");
+                    document.getElementById("success-message").style.display = 'block';
+                    document.getElementById("error-message").style.display = 'none';
+                } else {
+                    console.error("Error submitting form:", response.statusText);
+                    document.getElementById("success-message").style.display = 'none';
+                    document.getElementById("error-message").style.display = 'block';
+                }
 
-
-
+            });
+        })
     </script>
 </head>
 
@@ -135,9 +124,7 @@
                 <div class="row">
                     <div class="col-md-6 mb-5 mb-md-0" data-aos="fade-up">
 
-                        <form
-                            action="https://script.google.com/macros/s/AKfycbwGHUYtUyfAJ3589V0SeHiZI2Q4VCihhjYciYPQVJ2ovpQy4ID_SiIXHSijjQ_HhLxPig/exec"
-                            method="post" role="form" class="php-email-form" id="submit-to-google-sheet"
+                        <form method="post" role="form" class="php-email-form" id="submit-to-google-sheet"
                             name="submit-to-google-sheet">
 
                             <div class="row gy-3">
@@ -166,9 +153,9 @@
                                     <div id="success-message" style="display: none;">Your message has been sent. Thank
                                         you!
                                     </div>
-                                    <div class="loading">Loading</div>
-                                    <div class="error-message"></div>
-                                    <div class="sent-message">Your message has been sent. Thank you!</div>
+                                    <div id="error-message" class="error-message" style="display: none;">Oh, We
+                                        apologise, your message
+                                        could not be saved. Please try again!</div>
                                 </div>
 
                                 <div class="col-md-6 mt-0 form-group">
